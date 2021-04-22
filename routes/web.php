@@ -1,5 +1,7 @@
 <?php
 
+// use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,9 @@
 */
 
 Route::get('/', function () {
-    return 'CALLA GIL RCTMR';
+    return view('login');
+});
+
+Route::get('/home', function () {
+    return view('welcome');
 });
