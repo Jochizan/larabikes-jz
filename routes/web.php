@@ -1,6 +1,6 @@
 <?php
 
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +13,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get(
+  '/',
+  'ViewController@begin'
+);
 
-Route::get('/home', function () {
-    return view('welcome');
-});
+Route::get(
+  '/home',
+  'ViewController@home'
+);
+
+Route::get(
+  '/aboutUs',
+  'ViewController@aboutUs'
+);
+
+Route::get(
+  '/where',
+  'ViewController@where'
+);
+
+Route::get(
+  '/forum',
+  'ViewController@forum'
+);
