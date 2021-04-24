@@ -14,8 +14,8 @@ class CategoryController extends Controller
    */
   public function index()
   {
-    return Category::where('status', 1)->get();
-    //  return Category::find(2)->articles;
+    $categories = Category::where('status', 1)->get();
+    return view('categories.read', $categories);
   }
 
   /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
    */
   public function create()
   {
-    // return view('createForm');
+    return view('categories.create');
   }
 
   /**
@@ -38,6 +38,7 @@ class CategoryController extends Controller
   {
     try {
       Category::create($request->all());
+      // echo $request;
 
       echo json_encode([
         'status' => 200,
@@ -67,7 +68,8 @@ class CategoryController extends Controller
    */
   public function edit($id)
   {
-    // return view('ediForm');
+    $category = Category::where('id', $id)->get();
+    return view('categories.update', $category);
   }
 
   /**

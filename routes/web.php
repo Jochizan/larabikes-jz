@@ -39,10 +39,13 @@ Route::get(
   'ViewController@forum'
 );
 
-Route::get('/sale/{id}/article', function ($id) {
-  $answer = Sale::find($id);
+// Route::get('/sale/{id}/article', function ($id) {
+//   $answer = Sale::find($id);
 
-  foreach ($answer->perfils as $value) {
-    return $value;
-  }
-});
+//   $data = [];
+//   foreach ($answer->perfils as $value) {
+//     $data[] = $value;
+//   }
+
+//   echo json_encode($data);
+// });

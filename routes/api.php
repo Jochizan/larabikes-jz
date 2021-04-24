@@ -23,3 +23,7 @@ Route::resource('/v1/article', 'ArticleController');
 Route::resource('/v1/category', 'CategoryController');
 
 Route::resource('/v1/sale', 'SaleController');
+
+Route::resource('/v1/user', 'UserController');
+
+Route::resource('/v1/sale_article', 'SaleArticleController');
