@@ -8,8 +8,6 @@ class Category extends Model
 {
   protected $table = 'category';
 
-  protected $primary_key = 'id_category';
-
   public function articles()
   {
     return $this->hasMany('App\Article');

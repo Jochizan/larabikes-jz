@@ -1,5 +1,6 @@
 <?php
 
+use App\Sale;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +38,11 @@ Route::get(
   '/forum',
   'ViewController@forum'
 );
+
+Route::get('/sale/{id}/article', function ($id) {
+  $answer = Sale::find($id);
+
+  foreach ($answer->perfils as $value) {
+    return $value;
+  }
+});
