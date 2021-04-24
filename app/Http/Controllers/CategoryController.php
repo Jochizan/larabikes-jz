@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\Category;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class CategoryController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ArticleController extends Controller
    */
   public function index()
   {
-    return Article::where('status', 1)->get();
+    return Category::where('status', 1)->get();
+    //  return Category::find(2)->articles;
   }
 
   /**
@@ -24,8 +25,7 @@ class ArticleController extends Controller
    */
   public function create()
   {
-
-    return view('createForm');
+    // return view('createForm');
   }
 
   /**
@@ -37,12 +37,11 @@ class ArticleController extends Controller
   public function store(Request $request)
   {
     try {
-      Article::create($request->all());
+      Category::create($request->all());
 
       echo json_encode([
         'status' => 200,
         'response' => 'resource created successfully'
-        // 'data' => $request['query']
       ]);
     } catch (\Throwable $th) {
       throw $th;
@@ -57,7 +56,7 @@ class ArticleController extends Controller
    */
   public function show($id)
   {
-    return Article::where('id', $id)->get();
+    return Category::where('id', $id)->get();
   }
 
   /**
@@ -68,7 +67,7 @@ class ArticleController extends Controller
    */
   public function edit($id)
   {
-    return view('ediForm');
+    // return view('ediForm');
   }
 
   /**
@@ -81,9 +80,9 @@ class ArticleController extends Controller
   public function update(Request $request, $id)
   {
     try {
-      $article = Article::where('id', $id);
+      $category = Category::where('id', $id);
 
-      $article->update($request->all());
+      $category->update($request->all());
 
       echo json_encode([
         'status' => 204,
@@ -103,7 +102,7 @@ class ArticleController extends Controller
   public function destroy($id)
   {
     try {
-      Article::where('id', $id)->delete();
+      Category::where('id', $id)->delete();
       echo json_encode([
         'status' => 204,
         'response' => 'resource deleted successfully',
